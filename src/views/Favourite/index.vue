@@ -1,5 +1,6 @@
 <template>
-  <div class="home">
+  <div class="favourite">
+
   </div>
 </template>
 
@@ -7,7 +8,7 @@
 import { Component, Vue } from 'vue-property-decorator'
 
 @Component
-export default class Home extends Vue {}
+export default class Favourite extends Vue {}
 </script>
 
 <style lang="scss">
