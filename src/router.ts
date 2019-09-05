@@ -17,7 +17,9 @@ export default new Router({
       path: '/favourite',
       name: 'favourite',
       component: () =>
-        import(/* webpackChunkName: "about" */ './views/Favourite/index.vue')
+        import(
+          /* webpackChunkName: "favourite" */ './views/Favourite/index.vue'
+        )
     }
   ]
 })

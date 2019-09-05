@@ -22,7 +22,7 @@ function createWindow() {
     width: 1200,
     height: 800,
     frame: false,
-    titleBarStyle: 'hidden',
+    // titleBarStyle: 'hidden',
     webPreferences: {
       nodeIntegration: true
     }
