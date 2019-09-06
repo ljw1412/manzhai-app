@@ -9,6 +9,7 @@ module.exports = {
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'prettier/prettier': 'off'
   },
+  globals: { Message: true },
   parserOptions: {
     parser: '@typescript-eslint/parser'
   }

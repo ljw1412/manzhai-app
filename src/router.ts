@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from './views/Home.vue'
+import Home from './views/Main/Home.vue'
 
 Vue.use(Router)
 
@@ -18,7 +18,7 @@ export default new Router({
       name: 'favourite',
       component: () =>
         import(
-          /* webpackChunkName: "favourite" */ './views/Favourite/index.vue'
+          /* webpackChunkName: "favourite" */ './views/Main/Favourite/index.vue'
         )
     }
   ]

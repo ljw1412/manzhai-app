@@ -18,6 +18,9 @@ export default class SVGIcon extends Vue {
   @Prop({ default: 20 })
   readonly size!: number
 
+  @Prop(String)
+  readonly color!: string
+
   get iconName() {
     return `#icon-${this.name}`
   }
@@ -25,7 +28,8 @@ export default class SVGIcon extends Vue {
   get svgStyles() {
     return {
       width: this.size + 'px',
-      height: this.size + 'px'
+      height: this.size + 'px',
+      fill: this.color
     }
   }
 }

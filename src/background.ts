@@ -5,6 +5,7 @@ import {
   createProtocol,
   installVueDevtools
 } from 'vue-cli-plugin-electron-builder/lib'
+import MainWin from './background/windowManager/MainWindow'
 const isDevelopment = process.env.NODE_ENV !== 'production'
 
 // 保持对window对象的全局引用，如果不这么做的话，当JavaScript对象被
@@ -38,8 +39,11 @@ function createWindow() {
     win.loadURL('app://./index.html')
   }
 
+  const mainWinManager = new MainWin(win)
+
   win.on('closed', () => {
     win = null
+    mainWinManager.removeAllListener()
   })
 }
 
