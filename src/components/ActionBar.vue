@@ -9,7 +9,7 @@
           @click="onActionMenuClick('minimize')"></mz-icon>
       </div>
       <div class="action-menu__item">
-        <mz-icon name="md-expand"
+        <mz-icon :name="isMaximize?'md-contract':'md-expand'"
           class="menu-icon"
           size="22"
           @click="onActionMenuClick('maximize')"></mz-icon>
@@ -30,8 +30,22 @@ import { ipcRenderer } from 'electron'
 
 @Component
 export default class ActionBar extends Vue {
+  isMaximize = false
+
+  addIpcListener() {
+    ipcRenderer.on('main-relpy', (e, { action, data }, arg) => {
+      if (action === 'maximize') {
+        this.isMaximize = data
+      }
+    })
+  }
+
   onActionMenuClick(menuType: string) {
     ipcRenderer.send('main', new Message('frameController', menuType))
+  }
+
+  created() {
+    this.addIpcListener()
   }
 }
 </script>
@@ -65,6 +79,7 @@ export default class ActionBar extends Vue {
 }
 
 .menu-icon {
+  -webkit-app-region: no-drag;
   fill: #fff;
   transition-duration: 0.2s;
   &:hover {
