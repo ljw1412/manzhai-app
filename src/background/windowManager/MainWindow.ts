@@ -40,7 +40,6 @@ export default class MainWin {
         } else {
           this.window.maximize()
         }
-
         break
       case 'fullScreen':
         this.window.setFullScreen(!this.window.isFullScreen())
