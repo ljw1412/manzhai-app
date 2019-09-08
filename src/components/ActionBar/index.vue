@@ -52,6 +52,7 @@ export default class ActionBar extends Vue {
   background-color: $--color-primary;
   // border-bottom: 1px solid #a40011;
   &__mini-profile {
+    -webkit-app-region: no-drag;
     width: 50px;
     height: 50px;
     cursor: pointer;
