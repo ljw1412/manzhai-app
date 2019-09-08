@@ -9,6 +9,7 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 import { State, namespace } from 'vuex-class'
+import { SidebarMenuItem } from '@/types/view.d.ts'
 import SidebarMenu from './Menu.vue'
 const layoutModule = namespace('layout')
 
@@ -22,7 +23,10 @@ export default class Sidebar extends Vue {
   readonly isDisplaySidebar!: boolean
   @layoutModule.Mutation('toggleSidebar')
   readonly toggleSidebar!: Function
-  menuList = [{ label: '收藏', order: 10 }]
+  menuList: SidebarMenuItem[] = [
+    { label: '主页', icon: 'md-home', name: 'home', order: 10 },
+    { label: '收藏', icon: 'md-heart', name: 'favourite', order: 20 }
+  ]
 }
 </script>
 

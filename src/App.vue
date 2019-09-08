@@ -30,17 +30,6 @@ export default class App extends Vue {
 
 <style lang="scss">
 @import '@/theme/index.scss';
-* {
-  margin: 0;
-  padding: 0;
-  color: $--color-text-primary;
-}
-html,
-body,
-#app {
-  width: 100%;
-  height: 100%;
-}
 
 #app > main {
   width: 100%;
