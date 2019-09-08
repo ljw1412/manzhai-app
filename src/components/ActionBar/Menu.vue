@@ -17,7 +17,6 @@
 
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator'
-import { ActionBarMenuItem } from '@/types/view.d.ts'
 import { ipcRenderer } from 'electron'
 
 @Component
@@ -48,8 +47,6 @@ export default class ActionbarMenu extends Vue {
    * @param item 菜单对象
    */
   onActionMenuClick(item: ActionBarMenuItem) {
-    console.log(item)
-
     if (item.route) {
       this.$router.replace(item.route)
       return

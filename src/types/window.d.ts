@@ -1,7 +1,3 @@
-import { Message } from './model'
-
-declare global {
-  interface Window {
-    Message?: typeof Message
-  }
+interface Window {
+  Message: typeof Message
 }

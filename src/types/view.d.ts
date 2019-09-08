@@ -1,4 +1,4 @@
-export interface SidebarMenuItem {
+interface SidebarMenuItem {
   // 标签名称
   label: string
 
@@ -12,7 +12,7 @@ export interface SidebarMenuItem {
   order: number
 }
 
-export interface ActionBarMenuItem {
+interface ActionBarMenuItem {
   // 图标名称
   name: string
 
