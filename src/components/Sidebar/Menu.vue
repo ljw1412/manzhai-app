@@ -36,11 +36,6 @@ export default class SidebarMenu extends Vue {
     user-select: none;
     font-size: 18px;
 
-    &.router-link-exact-active {
-      color: $--color-primary;
-      fill: $--color-primary;
-    }
-
     &::before {
       content: '';
       z-index: -1;
@@ -49,20 +44,30 @@ export default class SidebarMenu extends Vue {
       bottom: 0;
       left: 0;
       right: 0;
-      background-color: rgba($color: $--color-primary, $alpha: 0.5);
+      background-color: rgba($color: $--color-primary, $alpha: 0.6);
       transform-origin: center left;
       transform: scaleX(0);
       transition: transform 0.25s ease-in-out;
     }
 
-    &:not(.router-link-exact-active):hover {
+    &:not(.router-link-exact-active) {
       transition: 0.2s linear;
-      color: #fff;
-      fill: #fff;
-      &::before {
-        transform-origin: center left;
-        transform: scaleX(1);
+      &:active {
+        background-color: rgba($color: $--color-primary, $alpha: 0.9);
       }
+      &:hover {
+        color: #fff;
+        fill: #fff;
+        &::before {
+          transform-origin: center left;
+          transform: scaleX(1);
+        }
+      }
+    }
+
+    &.router-link-exact-active {
+      color: $--color-primary;
+      fill: $--color-primary;
     }
   }
 
