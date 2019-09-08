@@ -1,3 +1,7 @@
-interface Window {
-  Message: Function
+import { Message } from './model'
+
+declare global {
+  interface Window {
+    Message?: typeof Message
+  }
 }

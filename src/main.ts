@@ -6,7 +6,7 @@ import inject from './inject'
 
 Vue.config.productionTip = false
 
-inject(Vue)
+inject(Vue, router, store)
 
 new Vue({
   router,
