@@ -9,7 +9,6 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 import { State, namespace } from 'vuex-class'
-import { SidebarMenuItem } from '@/types/view.d.ts'
 import SidebarMenu from './Menu.vue'
 const layoutModule = namespace('layout')
 

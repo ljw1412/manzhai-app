@@ -13,7 +13,6 @@
 
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator'
-import { SidebarMenuItem } from '@/types/view.d.ts'
 @Component
 export default class SidebarMenu extends Vue {
   @Prop({ default: [] })
