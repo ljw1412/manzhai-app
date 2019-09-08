@@ -6,7 +6,7 @@
 </template>
 
 <script lang="ts">
-import ActionBar from '@/components/ActionBar.vue'
+import ActionBar from '@/components/ActionBar/index.vue'
 import { Component, Vue } from 'vue-property-decorator'
 
 @Component({
