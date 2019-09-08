@@ -66,6 +66,7 @@ export default class ActionbarMenu extends Vue {
 </script>
 
 <style lang="scss">
+@import '@/theme/index.scss';
 .actionbar-menu {
   display: inline-flex;
   align-items: center;
@@ -80,7 +81,7 @@ export default class ActionbarMenu extends Vue {
     width: 1px;
     height: 20px;
     margin: 0 5px;
-    background-color: rgba($color: #dcdfe6, $alpha: 0.8);
+    background-color: rgba($color: $--border-color-base, $alpha: 0.8);
   }
   &__icon {
     fill: #fff;
@@ -88,6 +89,9 @@ export default class ActionbarMenu extends Vue {
     transition-duration: 0.2s;
     -webkit-app-region: no-drag;
     &:hover {
+      fill: mix($--color-white, #0cc20c, 50%);
+    }
+    &:active {
       fill: #0cc20c;
     }
   }
