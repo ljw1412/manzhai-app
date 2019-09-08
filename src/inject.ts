@@ -1,4 +1,5 @@
 import { VueConstructor } from 'vue'
+import '@/theme/global.scss'
 import SvgIcon from '@/components/SvgIcon.vue'
 import Message from '@/model/Message'
 
