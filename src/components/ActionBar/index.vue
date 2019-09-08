@@ -59,6 +59,7 @@ export default class ActionBar extends Vue {
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    transition: background-color 0.3s ease-out;
     &:hover {
       background-color: $--hover-background-color-black;
     }
