@@ -1,7 +1,7 @@
 <template>
   <div class="actionbar-menu">
     <template v-for="item of menuList">
-      <div class="actionbar-menu__item"
+      <div class="actionbar-menu__item flex-double-center"
         :key="item.action">
         <mz-icon class="actionbar-menu__icon"
           :name="item.name"
@@ -73,9 +73,6 @@ export default class ActionbarMenu extends Vue {
   padding: 0 10px;
   &__item {
     position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     width: 30px;
     height: 30px;
   }

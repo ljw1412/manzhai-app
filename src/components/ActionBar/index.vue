@@ -1,6 +1,6 @@
 <template>
-  <div class="actionbar">
-    <div class="actionbar__mini-profile"
+  <div class="actionbar flex-center-space-between">
+    <div class="actionbar__mini-profile flex-double-center"
       @click="toggleSidebar">
       <transition name="zoom">
         <mz-icon v-if="isDisplaySidebar"
@@ -45,19 +45,14 @@ export default class ActionBar extends Vue {
 .actionbar {
   -webkit-app-region: drag;
   user-select: none;
-  display: flex;
-  justify-content: space-between;
   height: 50px;
   width: 100%;
   box-sizing: border-box;
   background-color: $--color-primary;
   // border-bottom: 1px solid #a40011;
   &__mini-profile {
-    display: flex;
     width: 50px;
     height: 50px;
-    align-items: center;
-    justify-content: center;
     cursor: pointer;
     transition: background-color 0.3s ease-out;
     &:hover {

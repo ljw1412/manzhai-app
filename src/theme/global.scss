@@ -5,6 +5,10 @@
   cursor: pointer;
 }
 
+.not-user-select {
+  user-select: none;
+}
+
 .flex-center-space-between {
   display: flex;
   align-items: center;
