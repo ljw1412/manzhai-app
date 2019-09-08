@@ -16,19 +16,38 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Vue, Prop } from 'vue-property-decorator'
 import { ipcRenderer } from 'electron'
 
 @Component
 export default class ActionbarMenu extends Vue {
+  @Prop(Boolean)
+  readonly onlyBase!: boolean
   menuList = [
-    { name: 'md-settings', size: 20, action: 'setting', divider: true },
-    { name: 'md-remove', size: 24, action: 'minimize' },
-    { name: 'md-expand', size: 22, action: 'maximize' },
-    { name: 'md-close', size: 24, action: 'close' }
+    { name: 'md-settings', size: 20, action: 'setting', divider: true }
   ]
+  // 基础功能菜单
+  baseMenuList = [
+    { name: 'md-remove', size: 24, action: 'minimize', divider: false },
+    { name: 'md-expand', size: 22, action: 'maximize', divider: false },
+    { name: 'md-close', size: 24, action: 'close', divider: false }
+  ]
+
   get maximizeMenu() {
     return this.menuList.find(item => item.action === 'maximize')
+  }
+  /**
+   * 点击功能菜单时事件
+   * @param menuType 菜单类型
+   */
+  onActionMenuClick(menuType: string) {
+    ipcRenderer.send('main', new Message('frameController', menuType))
+  }
+
+  initMenu() {
+    this.menuList = this.onlyBase
+      ? this.baseMenuList
+      : this.menuList.concat(this.baseMenuList)
   }
 
   addIpcListener() {
@@ -39,17 +58,14 @@ export default class ActionbarMenu extends Vue {
     })
   }
 
-  onActionMenuClick(menuType: string) {
-    ipcRenderer.send('main', new Message('frameController', menuType))
-  }
-
   created() {
+    this.initMenu()
     this.addIpcListener()
   }
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .actionbar-menu {
   display: inline-flex;
   align-items: center;
