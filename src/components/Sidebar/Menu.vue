@@ -33,7 +33,6 @@ export default class SidebarMenu extends Vue {
     margin: 5px 0;
     word-wrap: none;
     word-break: keep-all;
-    user-select: none;
     font-size: 18px;
 
     &::before {

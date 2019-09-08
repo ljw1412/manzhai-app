@@ -1,5 +1,5 @@
 <template>
-  <div class="sidebar"
+  <div class="sidebar not-user-select"
     :class="{'sidebar--hide' :!isDisplaySidebar}">
     <div class="sidebar__header"></div>
     <sidebar-menu :data="menuList"></sidebar-menu>

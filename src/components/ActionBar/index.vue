@@ -1,5 +1,5 @@
 <template>
-  <div class="actionbar flex-center-space-between">
+  <div class="actionbar not-user-select flex-center-space-between">
     <div class="actionbar__mini-profile flex-double-center"
       @click="toggleSidebar">
       <transition name="zoom">
@@ -44,7 +44,6 @@ export default class ActionBar extends Vue {
 @import '@/theme/index.scss';
 .actionbar {
   -webkit-app-region: drag;
-  user-select: none;
   height: 50px;
   width: 100%;
   box-sizing: border-box;
