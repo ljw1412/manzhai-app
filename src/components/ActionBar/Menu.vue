@@ -6,7 +6,7 @@
         <mz-icon class="actionbar-menu__icon"
           :name="item.name"
           :size="item.size"
-          @click="onActionMenuClick(item.action)"></mz-icon>
+          @click="onActionMenuClick(item)"></mz-icon>
       </div>
       <span v-if="item.divider"
         class="actionbar-menu__divider"
@@ -17,20 +17,27 @@
 
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator'
+import { ActionBarMenuItem } from '@/types/view.d.ts'
 import { ipcRenderer } from 'electron'
 
 @Component
 export default class ActionbarMenu extends Vue {
   @Prop(Boolean)
   readonly onlyBase!: boolean
-  menuList = [
-    { name: 'md-settings', size: 20, action: 'setting', divider: true }
+  menuList: ActionBarMenuItem[] = [
+    {
+      name: 'md-settings',
+      size: 20,
+      action: 'setting',
+      route: { name: 'setting' },
+      divider: true
+    }
   ]
   // 基础功能菜单
-  baseMenuList = [
-    { name: 'md-remove', size: 24, action: 'minimize', divider: false },
-    { name: 'md-expand', size: 22, action: 'maximize', divider: false },
-    { name: 'md-close', size: 24, action: 'close', divider: false }
+  baseMenuList: ActionBarMenuItem[] = [
+    { name: 'md-remove', size: 24, action: 'minimize' },
+    { name: 'md-expand', size: 22, action: 'maximize' },
+    { name: 'md-close', size: 24, action: 'close' }
   ]
 
   get maximizeMenu() {
@@ -38,10 +45,16 @@ export default class ActionbarMenu extends Vue {
   }
   /**
    * 点击功能菜单时事件
-   * @param menuType 菜单类型
+   * @param item 菜单对象
    */
-  onActionMenuClick(menuType: string) {
-    ipcRenderer.send('main', new Message('frameController', menuType))
+  onActionMenuClick(item: ActionBarMenuItem) {
+    console.log(item)
+
+    if (item.route) {
+      this.$router.replace(item.route)
+      return
+    }
+    ipcRenderer.send('main', new Message('frameController', item.action))
   }
 
   initMenu() {

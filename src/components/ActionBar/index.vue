@@ -15,7 +15,7 @@
           key="mini-profile-default"></mz-icon>
       </transition>
     </div>
-    <div class="action">标题</div>
+    <div class="actionbar__title">{{title}}</div>
     <!-- 标题上的功能菜单 -->
     <actionbar-menu></actionbar-menu>
   </div>
@@ -33,6 +33,8 @@ const layoutModule = namespace('layout')
   }
 })
 export default class ActionBar extends Vue {
+  @layoutModule.State('title')
+  readonly title!: string
   @layoutModule.State('isDisplaySidebar')
   readonly isDisplaySidebar!: boolean
   @layoutModule.Mutation('toggleSidebar')
@@ -57,6 +59,10 @@ export default class ActionBar extends Vue {
     &:hover {
       background-color: $--hover-background-color-black;
     }
+  }
+
+  &__title {
+    color: $--color-white;
   }
 }
 </style>

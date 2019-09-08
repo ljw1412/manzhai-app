@@ -10,7 +10,6 @@ export default function(
   router: VueRouter,
   store: Store<any>
 ) {
-  bindToWindow()
   bindToVue(Vue)
   bindStoreFnToVue(Vue, store)
 }
@@ -29,9 +28,7 @@ function registerMZIcon(Vue: VueConstructor) {
 /**
  * 绑定到 window
  */
-function bindToWindow() {
-  window.Message = Message
-}
+window.Message = Message
 
 /**
  * 添加自定义变量或方法到 Vue 原型
