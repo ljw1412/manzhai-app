@@ -1,7 +1,7 @@
 import { VueConstructor } from 'vue'
 import VueRouter from 'vue-router'
 import { Store } from 'vuex'
-import '@/theme/global.scss'
+import '@/theme/global/index.scss'
 import SvgIcon from '@/components/SvgIcon.vue'
 import Message from '@/model/Message'
 

@@ -91,18 +91,19 @@ export default class ActionbarMenu extends Vue {
     width: 1px;
     height: 20px;
     margin: 0 5px;
-    background-color: rgba($color: $--border-color-base, $alpha: 0.8);
+    background-color: getColor(border-base);
+    opacity: 0.8;
   }
   &__icon {
-    fill: #fff;
+    fill: getColor(actionbar-menu);
     cursor: pointer;
     transition-duration: 0.2s;
     -webkit-app-region: no-drag;
     &:hover {
-      fill: mix($--color-white, #0cc20c, 50%);
+      fill: getColor(actionbar-menu-hover);
     }
     &:active {
-      fill: #0cc20c;
+      fill: getColor(actionbar-menu-active);
     }
   }
 }

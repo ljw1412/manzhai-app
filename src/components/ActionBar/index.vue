@@ -6,12 +6,10 @@
         <mz-icon v-if="isDisplaySidebar"
           name="md-arrow-back"
           size="24"
-          color="#fff"
           key="mini-profile-close"></mz-icon>
         <mz-icon v-else
           name="md-contact"
           size="36"
-          color="#fff"
           key="mini-profile-default"></mz-icon>
       </transition>
     </div>
@@ -49,21 +47,21 @@ export default class ActionBar extends Vue {
   height: 50px;
   width: 100%;
   box-sizing: border-box;
-  background-color: $--color-primary;
-  // border-bottom: 1px solid #a40011;
+  background-color: getColor(primary);
   &__mini-profile {
     -webkit-app-region: no-drag;
     width: 50px;
     height: 50px;
     cursor: pointer;
+    fill: getColor(white);
     transition: background-color 0.3s ease-out;
     &:hover {
-      background-color: $--hover-background-color-black;
+      background-color: getColor(hover-background-w);
     }
   }
 
   &__title {
-    color: $--color-white;
+    color: getColor(white);
   }
 }
 </style>

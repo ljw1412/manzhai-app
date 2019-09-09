@@ -37,7 +37,7 @@ export default class App extends Vue {
   margin-left: auto;
   margin-right: 0;
   &.has-sidebar {
-    width: calc(100% - 250px);
+    width: calc(100% - 256px);
   }
 }
 </style>

@@ -1,5 +1,6 @@
 <template>
   <div class="setting">
+    图标风格
   </div>
 </template>
 

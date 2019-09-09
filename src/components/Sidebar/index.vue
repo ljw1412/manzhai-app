@@ -35,10 +35,12 @@ export default class Sidebar extends Vue {
   position: fixed;
   top: 0;
   left: 0;
-  width: 250px;
+  width: 256px;
   height: 100%;
   z-index: 9;
-  background-color: #fff;
+  box-sizing: border-box;
+  box-shadow: -3px 0 5px getColor(primary);
+  background-color: getColor(white);
   transition: all 0.3s linear;
   overflow: hidden;
   &--hide {
@@ -47,7 +49,7 @@ export default class Sidebar extends Vue {
 
   &__header {
     height: 180px;
-    background-color: $--color-primary;
+    background-color: getColor(primary);
   }
 }
 </style>

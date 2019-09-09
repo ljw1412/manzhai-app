@@ -28,49 +28,24 @@ export default class SidebarMenu extends Vue {
     display: flex;
     align-items: center;
     height: 30px;
-    padding: 10px 15px;
+    padding: 10px 16px;
     margin: 5px 0;
     word-wrap: none;
     word-break: keep-all;
     font-size: 18px;
 
-    &::before {
-      content: '';
-      z-index: -1;
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background-color: rgba($color: $--color-primary, $alpha: 0.6);
-      transform-origin: center left;
-      transform: scaleX(0);
-      transition: transform 0.25s ease-in-out;
-    }
-
     &:not(.router-link-exact-active) {
       transition: 0.2s linear;
-      &:active {
-        background-color: rgba($color: $--color-primary, $alpha: 0.9);
-      }
-      &:hover {
-        color: #fff;
-        fill: #fff;
-        &::before {
-          transform-origin: center left;
-          transform: scaleX(1);
-        }
-      }
     }
 
     &.router-link-exact-active {
-      color: $--color-primary;
-      fill: $--color-primary;
+      color: getColor(primary);
+      fill: getColor(primary);
     }
   }
 
   &__label {
-    padding-left: 6px;
+    padding-left: 15px;
   }
 }
 </style>
