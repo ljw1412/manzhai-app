@@ -32,6 +32,11 @@ $--color-actionbar-menu: $--color-white;
 $--color-actionbar-menu-hover: #86e186;
 $--color-actionbar-menu-active: #0cc20c;
 
+/*** Sidebar ***/
+$--color-sidebar-menu: $--color-text-primary;
+$--color-sidebar-menu-hover: #86e186;
+$--color-sidebar-menu-active: #0cc20c;
+
 $colors: (
   primary: $--color-primary,
   success: $--color-success,
@@ -52,7 +57,10 @@ $colors: (
   hover-background-w: $--hover-background-color-white,
   actionbar-menu: $--color-actionbar-menu,
   actionbar-menu-hover: $--color-actionbar-menu-hover,
-  actionbar-menu-active: $--color-actionbar-menu-active
+  actionbar-menu-active: $--color-actionbar-menu-active,
+  sidebar-menu: $--color-sidebar-menu,
+  sidebar-menu-hover: $--color-sidebar-menu-hover,
+  sidebar-menu-active: $--color-sidebar-menu-active
 );
 
 @function getColor($colorName) {

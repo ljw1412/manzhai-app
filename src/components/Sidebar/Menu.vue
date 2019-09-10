@@ -33,6 +33,8 @@ export default class SidebarMenu extends Vue {
     word-wrap: none;
     word-break: keep-all;
     font-size: 18px;
+    color: getColor(sidebar-menu);
+    fill: getColor(sidebar-menu);
 
     &:not(.router-link-exact-active) {
       transition: 0.2s linear;
