@@ -1,7 +1,8 @@
+import '@/theme/global/index.scss'
 import { VueConstructor } from 'vue'
 import VueRouter from 'vue-router'
 import { Store } from 'vuex'
-import '@/theme/global/index.scss'
+import * as directives from '@/directives'
 import SvgIcon from '@/components/SvgIcon.vue'
 import Message from '@/model/Message'
 
@@ -13,6 +14,12 @@ export default function(
   bindToVue(Vue)
   bindStoreFnToVue(Vue, store)
 }
+
+/**
+ * 绑定到 window
+ */
+window.Message = Message
+
 /**
  * 注册SVG图标库和图标组件
  * @param Vue
@@ -26,15 +33,21 @@ function registerMZIcon(Vue: VueConstructor) {
 }
 
 /**
- * 绑定到 window
+ * 绑定自定义指令
+ * @param Vue
  */
-window.Message = Message
+function bindDirectives(Vue: VueConstructor) {
+  Object.keys(directives).forEach(key => {
+    Vue.directive(key.toLowerCase(), (directives as Record<string, any>)[key])
+  })
+}
 
 /**
  * 添加自定义变量或方法到 Vue 原型
  * @param Vue
  */
 function bindToVue(Vue: VueConstructor) {
+  bindDirectives(Vue)
   registerMZIcon(Vue)
 }
 
