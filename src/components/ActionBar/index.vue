@@ -1,6 +1,6 @@
 <template>
-  <div class="actionbar not-user-select flex-center-space-between">
-    <div class="actionbar__mini-profile flex-double-center"
+  <div class="actionbar flex-center-space-between not-user-select color-transition">
+    <div class="actionbar__mini-profile flex-double-center color-transition"
       @click="toggleSidebar">
       <transition name="zoom">
         <mz-icon v-if="isDisplaySidebar"
@@ -54,7 +54,6 @@ export default class ActionBar extends Vue {
     height: 50px;
     cursor: pointer;
     fill: getColor(white);
-    transition: background-color 0.3s ease-out;
     &:hover {
       background-color: getColor(hover-background-w);
     }

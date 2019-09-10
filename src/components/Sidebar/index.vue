@@ -1,7 +1,7 @@
 <template>
   <div class="sidebar not-user-select"
     :class="{'sidebar--hide' :!isDisplaySidebar}">
-    <div class="sidebar__header"></div>
+    <div class="sidebar__header color-transition"></div>
     <sidebar-menu :data="menuList"></sidebar-menu>
   </div>
 </template>

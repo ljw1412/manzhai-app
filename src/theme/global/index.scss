@@ -9,6 +9,10 @@
   user-select: none;
 }
 
+.color-transition {
+  transition: background-color 0.3s linear, color 0.3s linear, fill 0.3s linear;
+}
+
 .flex-center-space-between {
   display: flex;
   align-items: center;
