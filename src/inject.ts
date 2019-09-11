@@ -1,4 +1,4 @@
-import '@/theme/global/index.scss'
+import '@/styles/global/index.scss'
 import { VueConstructor } from 'vue'
 import VueRouter from 'vue-router'
 import { Store } from 'vuex'

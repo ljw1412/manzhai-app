@@ -41,7 +41,7 @@ export default class ActionBar extends Vue {
 </script>
 
 <style lang="scss">
-@import '@/theme/index.scss';
+@import '@/styles/index.scss';
 .actionbar {
   -webkit-app-region: drag;
   height: 50px;

@@ -76,7 +76,7 @@ export default class ActionbarMenu extends Vue {
 </script>
 
 <style lang="scss">
-@import '@/theme/index.scss';
+@import '@/styles/index.scss';
 .actionbar-menu {
   display: inline-flex;
   align-items: center;

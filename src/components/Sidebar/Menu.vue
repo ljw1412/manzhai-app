@@ -21,7 +21,7 @@ export default class SidebarMenu extends Vue {
 </script>
 
 <style lang="scss" scoped>
-@import '@/theme/index.scss';
+@import '@/styles/index.scss';
 .sidebar-menu {
   &__item {
     position: relative;

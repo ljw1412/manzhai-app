@@ -30,7 +30,7 @@ export default class Sidebar extends Vue {
 </script>
 
 <style lang="scss" scoped>
-@import '@/theme/index.scss';
+@import '@/styles/index.scss';
 .sidebar {
   position: fixed;
   top: 0;

@@ -1,0 +1,31 @@
+$colors: (
+  white: #ffffff,
+  black: #000000,
+  primary: #424242,
+  success: #46c37b,
+  warning: #f5a623,
+  danger: #f56c6c,
+  info: #909399,
+  text-primary: #303133,
+  text-regular: #606266,
+  text-secondary: #909399,
+  text-placeholder: #c0c4cc,
+  border-base: #dcdfe6,
+  border-light: #e4e7ed,
+  border-lighter: #ebeef5,
+  border-extra-light: #f2f6fc,
+  hover-background-b: rgba(0, 0, 0, 0.25),
+  hover-background-w: rgba(255, 255, 255, 0.25),
+  actionbar-menu: #ffffff,
+  actionbar-menu-hover: #86e186,
+  actionbar-menu-active: #0cc20c,
+  sidebar-menu: #303133,
+  sidebar-menu-hover: #86e186,
+  sidebar-menu-active: #0cc20c
+);
+
+:root[data-theme='dark'] {
+  @each $name, $color in $colors {
+    --color-#{$name}: #{$color};
+  }
+}
