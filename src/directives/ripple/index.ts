@@ -87,6 +87,7 @@ const ripple = {
     setTimeout(() => {
       ripple.classList.remove('mz-ripple--in')
       // ripple.classList.add('mz-ripple--out')
+      el.blur()
       setTimeout(() => {
         ripple.parentNode && el.removeChild(ripple.parentNode)
       }, 200)
