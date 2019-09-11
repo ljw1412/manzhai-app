@@ -41,8 +41,8 @@ export default class SidebarMenu extends Vue {
     }
 
     &.router-link-exact-active {
-      color: getColor(primary);
-      fill: getColor(primary);
+      color: getColor(sidebar-menu-active);
+      fill: getColor(sidebar-menu-active);
     }
   }
 
