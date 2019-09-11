@@ -17,8 +17,9 @@ body,
 }
 
 a {
-  text-decoration: none;
+  -webkit-user-drag: none;
   color: getColor(text-primary);
+  text-decoration: none;
 }
 
 @import '../themes/base.scss';

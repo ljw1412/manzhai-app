@@ -27,17 +27,17 @@ function calculate(
   const { offsetX, offsetY } = e
   const { width, height } = el.getBoundingClientRect()
 
-  let radius = 0
-  let scale = 0.3
-  radius = Math.sqrt(
-    (Math.abs(width / 2 - offsetX) + width / 2) ** 2 +
-      (Math.abs(height / 2 - offsetY) + height / 2) ** 2
-  )
+  let scale = 0.15
+  const radius = options.center
+    ? width / 2
+    : Math.sqrt(
+        (Math.abs(width / 2 - offsetX) + width / 2) ** 2 +
+          (Math.abs(height / 2 - offsetY) + height / 2) ** 2
+      )
 
-  const centerX = `${offsetX - radius}px`
-  const centerY = `${offsetY - radius}px`
+  const centerX = options.center ? '0' : `${offsetX - radius}px`
+  const centerY = options.center ? '0' : `${offsetY - radius}px`
 
-  // const x = options.center ? centerX
   return { radius, scale, centerX, centerY }
 }
 
@@ -86,10 +86,10 @@ const ripple = {
 
     setTimeout(() => {
       ripple.classList.remove('mz-ripple--in')
-      ripple.classList.add('mz-ripple--out')
+      // ripple.classList.add('mz-ripple--out')
       setTimeout(() => {
         ripple.parentNode && el.removeChild(ripple.parentNode)
-      }, 300)
+      }, 200)
     }, delay)
   }
 }

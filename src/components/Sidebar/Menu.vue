@@ -1,7 +1,7 @@
 <template>
   <div class="sidebar-menu">
     <router-link v-for="(item,index) of data"
-      class="sidebar-menu__item"
+      class="sidebar-menu__item color-transition"
       v-ripple
       :to="{name:item.name}"
       :key="index">
@@ -37,8 +37,23 @@ export default class SidebarMenu extends Vue {
     color: getColor(sidebar-menu);
     fill: getColor(sidebar-menu);
 
-    &:not(.router-link-exact-active) {
-      transition: 0.2s linear;
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: currentColor;
+      opacity: 0;
+      transition: opacity 0.2s linear;
+    }
+
+    &:hover::before {
+      opacity: 0.08;
+    }
+    &:focus::before {
+      opacity: 0.16;
     }
 
     &.router-link-exact-active {
