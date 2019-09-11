@@ -2,6 +2,7 @@
   <div class="sidebar-menu">
     <router-link v-for="(item,index) of data"
       class="sidebar-menu__item"
+      v-ripple
       :to="{name:item.name}"
       :key="index">
       <mz-icon :name="item.icon"
