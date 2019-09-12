@@ -9,6 +9,11 @@
   user-select: none;
 }
 
+.is-circle {
+  border-radius: 50%;
+  overflow: hidden;
+}
+
 .color-transition {
   transition: background-color 0.3s linear, color 0.3s linear, fill 0.3s linear;
 }

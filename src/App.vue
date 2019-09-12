@@ -1,8 +1,9 @@
 <template>
-  <div id="app">
-    <sidebar></sidebar>
+  <div id="app"
+    class="color-transition">
+    <action-bar></action-bar>
     <main :class="{ 'has-sidebar': isDisplaySidebar }">
-      <action-bar></action-bar>
+      <sidebar></sidebar>
       <router-view />
     </main>
   </div>

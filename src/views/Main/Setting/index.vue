@@ -2,6 +2,7 @@
   <div class="setting">
     图标风格
     <button @click="onChangeThemeClick">主题切换</button>
+    <mz-button>123</mz-button>
   </div>
 </template>
 

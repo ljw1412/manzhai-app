@@ -1,7 +1,7 @@
 <template>
   <div class="actionbar flex-center-space-between not-user-select color-transition">
     <div class="actionbar__mini-profile flex-double-center color-transition"
-      v-ripple
+      v-ripple="{center:true}"
       @click="toggleSidebar">
       <transition name="zoom">
         <mz-icon v-if="isDisplaySidebar"

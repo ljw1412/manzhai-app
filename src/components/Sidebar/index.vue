@@ -1,7 +1,14 @@
 <template>
   <div class="sidebar not-user-select"
     :class="{'sidebar--hide' :!isDisplaySidebar}">
-    <div class="sidebar__header color-transition"></div>
+    <div class="sidebar__header color-transition">
+      <div v-ripple
+        class="sidebar__close is-circle flex-double-center color-transition">
+        <mz-icon name="md-arrow-back"
+          size="24"
+          key="mini-profile-close"></mz-icon>
+      </div>
+    </div>
     <sidebar-menu :data="menuList"></sidebar-menu>
   </div>
 </template>
@@ -37,7 +44,7 @@ export default class Sidebar extends Vue {
   left: 0;
   width: 256px;
   height: 100%;
-  z-index: 9;
+  z-index: 1;
   box-sizing: border-box;
   box-shadow: -5px 0 10px getColor(primary);
   background-color: getColor(primary);
@@ -49,6 +56,15 @@ export default class Sidebar extends Vue {
 
   &__header {
     height: 180px;
+  }
+
+  &__close {
+    -webkit-app-region: no-drag;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    color: getColor(actionbar-menu);
+    fill: getColor(actionbar-menu);
   }
 }
 </style>
