@@ -63,8 +63,14 @@ export default class Sidebar extends Vue {
     width: 50px;
   }
 
+  &--hide &__header {
+    height: 50px;
+  }
+
   &__header {
     height: 180px;
+    transition: height 0.3s 0.3s;
+    overflow: hidden;
   }
 
   &__close {
