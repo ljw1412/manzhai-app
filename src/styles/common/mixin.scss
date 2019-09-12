@@ -9,3 +9,29 @@
   -webkit-line-clamp: $line-num;
   overflow: hidden;
 }
+
+@mixin bgHover {
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: currentColor;
+    opacity: 0;
+  }
+
+  &:hover {
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: currentColor;
+      opacity: 0.12;
+    }
+  }
+}

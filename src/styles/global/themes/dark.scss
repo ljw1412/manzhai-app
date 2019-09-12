@@ -29,4 +29,6 @@ $colors: (
   @each $name, $color in $colors {
     --color-#{$name}: #{$color};
   }
+  --mz-button-shadow: 0 1px 2px 0 rgba(192, 196, 204, 0.3),
+    0 3px 6px 2px rgba(192, 196, 204, 0.15);
 }
