@@ -1,3 +1,7 @@
+@function getVar($namespace, $name) {
+  @return var(--#{$namespace}-#{$name});
+}
+
 @function getColor($colorName) {
-  @return var(--color-#{$colorName});
+  @return getVar('color', $colorName);
 }

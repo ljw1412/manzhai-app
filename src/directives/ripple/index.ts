@@ -148,15 +148,11 @@ function updateRipple(
   }
 
   if (enabled && !isEnabled) {
-    console.log('addEventListener', el)
-
     el.addEventListener('mousedown', showRipple)
     el.addEventListener('mouseup', hideRipple)
     el.addEventListener('mouseleave', hideRipple)
     el.addEventListener('dragstart', hideRipple, { passive: true })
-  } else if (enabled && isEnabled) {
-    console.log('removeListeners', el)
-
+  } else if (!enabled && isEnabled) {
     removeListeners(el)
   }
 }
@@ -170,8 +166,6 @@ export const Ripple = {
     removeListeners(el)
   },
   update: (el: HTMLElement, binding: VNodeDirective) => {
-    console.log(el, binding, binding.value === binding.oldValue)
-
     if (binding.value === binding.oldValue) return
     updateRipple(el, binding, isRippleEnabled(binding.oldValue))
   }

@@ -10,8 +10,12 @@ export default {
     title: '漫宅'
   },
   mutations: {
-    toggleSidebar(state: LayoutState) {
-      state.isDisplaySidebar = !state.isDisplaySidebar
+    toggleSidebar(state: LayoutState, isDisplaySidebar: boolean | undefined) {
+      if (isDisplaySidebar === undefined) {
+        state.isDisplaySidebar = !state.isDisplaySidebar
+        return
+      }
+      state.isDisplaySidebar = isDisplaySidebar
     },
     setTitle(state: LayoutState, title: string) {
       state.title = title

@@ -1,0 +1,10 @@
+:root {
+  --sidebar-width: 25%;
+  --sidebar-max-width: 256px;
+}
+
+@media screen and (min-width: 1024px) {
+  :root {
+    --sidebar-width: var(--sidebar-max-width);
+  }
+}

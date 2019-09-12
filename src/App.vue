@@ -33,12 +33,14 @@ export default class App extends Vue {
 @import '@/styles/index.scss';
 
 #app > main {
-  width: 100%;
+  width: calc(100% - 50px);
   transition: all 0.3s linear;
   margin-left: auto;
   margin-right: 0;
+
   &.has-sidebar {
-    width: calc(100% - 256px);
+    width: calc(100% - #{getVar('sidebar', 'width')});
+    min-width: calc(100% - #{getVar('sidebar', 'max-width')});
   }
 }
 </style>

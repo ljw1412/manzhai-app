@@ -1,5 +1,6 @@
 <template>
-  <div class="sidebar-menu">
+  <div class="sidebar-menu"
+    :class="{'sidebar-menu--icon': !showLabel}">
     <router-link v-for="(item,index) of data"
       class="sidebar-menu__item color-transition"
       v-ripple
@@ -7,7 +8,8 @@
       :key="index">
       <mz-icon :name="item.icon"
         size="22"></mz-icon>
-      <span class="sidebar-menu__label">{{item.label}}</span>
+      <span v-show="showLabel"
+        class="sidebar-menu__label">{{item.label}}</span>
     </router-link>
   </div>
 </template>
@@ -18,6 +20,8 @@ import { Component, Vue, Prop } from 'vue-property-decorator'
 export default class SidebarMenu extends Vue {
   @Prop({ default: [] })
   readonly data!: SidebarMenuItem[]
+  @Prop(Boolean)
+  readonly showLabel!: boolean
 }
 </script>
 
@@ -25,17 +29,18 @@ export default class SidebarMenu extends Vue {
 @import '@/styles/index.scss';
 .sidebar-menu {
   &__item {
+    -webkit-app-region: no-drag;
     position: relative;
     display: flex;
     align-items: center;
     height: 30px;
     padding: 10px 16px;
-    margin: 5px 0;
     word-wrap: none;
     word-break: keep-all;
     font-size: 18px;
     color: getColor(sidebar-menu);
     fill: getColor(sidebar-menu);
+    transition: all 0.3s ease-in-out;
 
     &::before {
       content: '';
@@ -47,6 +52,7 @@ export default class SidebarMenu extends Vue {
       background-color: currentColor;
       opacity: 0;
       transition: opacity 0.2s linear;
+      z-index: -1;
     }
 
     &:hover::before {
@@ -60,6 +66,10 @@ export default class SidebarMenu extends Vue {
       color: getColor(sidebar-menu-active);
       fill: getColor(sidebar-menu-active);
     }
+  }
+
+  &--icon &__item {
+    padding: 10px 14px;
   }
 
   &__label {

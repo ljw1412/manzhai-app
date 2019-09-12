@@ -2,14 +2,21 @@
   <div class="sidebar not-user-select"
     :class="{'sidebar--hide' :!isDisplaySidebar}">
     <div class="sidebar__header color-transition">
-      <div v-ripple
-        class="sidebar__close is-circle flex-double-center color-transition">
-        <mz-icon name="md-arrow-back"
-          size="24"
-          key="mini-profile-close"></mz-icon>
+      <div v-ripple="{ center: true }"
+        class="sidebar__close is-circle flex-double-center color-transition"
+        @click="toggleSidebar()">
+        <transition name="zoom">
+          <mz-icon v-if="isDisplaySidebar"
+            name="md-arrow-back"
+            size="24"></mz-icon>
+          <mz-icon v-else
+            name="md-contact"
+            size="36"></mz-icon>
+        </transition>
       </div>
     </div>
-    <sidebar-menu :data="menuList"></sidebar-menu>
+    <sidebar-menu :data="menuList"
+      :showLabel="isDisplaySidebar"></sidebar-menu>
   </div>
 </template>
 
@@ -39,10 +46,12 @@ export default class Sidebar extends Vue {
 <style lang="scss" scoped>
 @import '@/styles/index.scss';
 .sidebar {
+  -webkit-app-region: drag;
   position: fixed;
   top: 0;
   left: 0;
-  width: 256px;
+  width: getVar('sidebar', 'width');
+  max-width: getVar('sidebar', 'max-width');
   height: 100%;
   z-index: 1;
   box-sizing: border-box;
@@ -51,7 +60,7 @@ export default class Sidebar extends Vue {
   transition: all 0.3s linear;
   overflow: hidden;
   &--hide {
-    width: 0;
+    width: 50px;
   }
 
   &__header {
