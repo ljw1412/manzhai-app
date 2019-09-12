@@ -89,6 +89,11 @@ const ripple = {
       ripple.classList.add('mz-ripple--out')
       el.blur()
       setTimeout(() => {
+        const ripples = el.querySelectorAll('.mz-ripple')
+        if (ripples.length <= 1 && el.dataset.previousPosition) {
+          el.style.position = el.dataset.previousPosition
+          delete el.dataset.previousPosition
+        }
         ripple.parentNode && el.removeChild(ripple.parentNode)
       }, 300)
     }, delay)
@@ -115,6 +120,7 @@ function safeElementPosition(el: HTMLElement) {
   const computedStyle = window.getComputedStyle(el)
   if (computedStyle && computedStyle.position === 'static') {
     el.style.position = 'relative'
+    el.dataset.previousPosition = 'static'
   }
 }
 
