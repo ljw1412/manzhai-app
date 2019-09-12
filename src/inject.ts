@@ -3,7 +3,7 @@ import { VueConstructor } from 'vue'
 import VueRouter from 'vue-router'
 import { Store } from 'vuex'
 import * as directives from '@/directives'
-import SvgIcon from '@/components/SvgIcon.vue'
+import mzui from '@/mzui/index'
 import Message from '@/model/Message'
 
 export default function(
@@ -29,7 +29,6 @@ function registerMZIcon(Vue: VueConstructor) {
   const requireAll = (requireContext: __WebpackModuleApi.RequireContext) =>
     requireContext.keys().map(requireContext)
   requireAll(svgs)
-  Vue.component('mz-icon', SvgIcon)
 }
 
 /**
@@ -49,6 +48,7 @@ function bindDirectives(Vue: VueConstructor) {
 function bindToVue(Vue: VueConstructor) {
   bindDirectives(Vue)
   registerMZIcon(Vue)
+  Vue.use(mzui)
 }
 
 /**

@@ -1,5 +1,5 @@
 <template>
-  <svg class="svg-icon"
+  <svg class="mz-icon"
     aria-hidden="true"
     v-on="$listeners"
     :style="svgStyles">
@@ -11,7 +11,7 @@
 import { Component, Vue, Prop } from 'vue-property-decorator'
 
 @Component
-export default class SVGIcon extends Vue {
+export default class MzIcon extends Vue {
   @Prop({ required: true })
   readonly name!: string
 
