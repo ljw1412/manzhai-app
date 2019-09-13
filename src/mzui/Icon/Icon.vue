@@ -35,5 +35,5 @@ export default class MzIcon extends Vue {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 </style>

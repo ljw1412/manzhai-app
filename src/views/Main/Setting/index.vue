@@ -6,6 +6,15 @@
       :key="type"
       :type="type"
       ripple>测试按钮</mz-button>
+    <mz-button icon
+      circle
+      ripple>
+      <mz-icon name="md-contact"
+        size="30"></mz-icon>
+    </mz-button>
+    <mz-button disabled>
+      测试123
+    </mz-button>
   </div>
 </template>
 

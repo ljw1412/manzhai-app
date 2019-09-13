@@ -2,16 +2,16 @@
 @import './transition.scss';
 
 .is-pointer {
-  cursor: pointer;
+  cursor: pointer !important;
 }
 
 .not-user-select {
-  user-select: none;
+  user-select: none !important;
 }
 
 .is-circle {
-  border-radius: 50%;
-  overflow: hidden;
+  border-radius: 50% !important;
+  overflow: hidden !important;
 }
 
 .color-transition {

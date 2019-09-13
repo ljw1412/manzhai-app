@@ -16,23 +16,30 @@ import MzIcon from '../Icon/index'
 export default class MzButton extends Vue {
   @Prop(String)
   readonly type!: string
-  @Prop(String)
-  readonly icon!: string
+  @Prop(Boolean)
+  readonly disabled!: boolean
+  @Prop(Boolean)
+  readonly icon!: string | boolean
   @Prop([Boolean, Object])
   readonly ripple!: boolean | object
+  @Prop([Boolean])
+  readonly circle!: boolean
 
   get buttonClasses() {
     const types = ['primary', 'success', 'warning', 'danger', 'info']
-    const classes = []
-    if (types.includes(this.type)) {
-      classes.push(`mz-button--${this.type}`)
-    }
+    const classes: any[] = [
+      { 'is-circle': this.circle },
+      { 'mz-button--icon': this.icon },
+      { 'mz-button--disabled': this.disabled }
+    ]
+    if (types.includes(this.type)) classes.push(`mz-button--${this.type}`)
+
     return classes
   }
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import '@/styles/index.scss';
 .mz-button {
   -webkit-appearance: none;
@@ -68,32 +75,26 @@ export default class MzButton extends Vue {
     box-shadow: getVar('mz-button', 'shadow');
   }
 
-  &--primary {
-    color: getColor('white');
-    background-color: getColor('primary');
+  &--icon {
+    height: auto;
+    padding: 0;
+    .mz-button__content {
+      display: flex;
+    }
   }
 
-  &--success {
-    color: getColor('white');
-    background-color: getColor('success');
-  }
-
-  &--warning {
-    color: getColor('white');
-    background-color: getColor('warning');
-  }
-
-  &--danger {
-    color: getColor('white');
-    background-color: getColor('danger');
-  }
-
-  &--info {
-    color: getColor('white');
-    background-color: getColor('info');
+  @each $type in (primary, success, warning, danger, info) {
+    &--#{$type} {
+      color: getColor('white');
+      background-color: getColor(#{$type});
+    }
   }
 
   &--disabled {
+    cursor: not-allowed;
+    pointer-events: none;
+    color: getColor(text-secondary);
+    background-color: getVar('mz-button', 'background-color-disabled');
   }
 }
 </style>
