@@ -1,20 +1,30 @@
 <template>
   <div class="sidebar not-user-select"
     :class="{'sidebar--hide' :!isDisplaySidebar}">
-    <div class="sidebar__header color-transition">
-      <div v-ripple="{ center: true }"
-        class="sidebar__close is-circle flex-double-center color-transition"
-        @click="toggleSidebar()">
-        <transition name="zoom">
-          <mz-icon v-if="isDisplaySidebar"
-            name="md-arrow-back"
-            size="24"></mz-icon>
-          <mz-icon v-else
-            name="md-contact"
-            size="36"></mz-icon>
-        </transition>
-      </div>
+    <!-- sidebar展开开关 -->
+    <div v-ripple="{ center: true }"
+      class="sidebar__close is-circle flex-double-center color-transition"
+      @click="toggleSidebar()">
+      <transition name="zoom">
+        <mz-icon v-if="isDisplaySidebar"
+          name="md-arrow-back"
+          size="24"></mz-icon>
+        <mz-icon v-else
+          name="md-contact"
+          size="36"></mz-icon>
+      </transition>
     </div>
+    <!-- sidebar顶部 -->
+    <div class="sidebar__header color-transition">
+      <transition name="fade">
+        <div v-show="isDisplaySidebar"
+          class="sidebar__avatar flex-double-center">
+          <mz-icon name="md-contact"
+            size="100"></mz-icon>
+        </div>
+      </transition>
+    </div>
+    <!-- 菜单栏 -->
     <sidebar-menu :data="menuList"
       :showLabel="isDisplaySidebar"></sidebar-menu>
   </div>
@@ -71,15 +81,25 @@ export default class Sidebar extends Vue {
     height: 180px;
     transition: height 0.3s 0.3s;
     overflow: hidden;
+    color: getColor(actionbar-menu);
+    fill: getColor(actionbar-menu);
   }
 
   &__close {
     -webkit-app-region: no-drag;
+    position: absolute;
+    left: 0;
+    top: 0;
     width: 50px;
     height: 50px;
     cursor: pointer;
     color: getColor(actionbar-menu);
     fill: getColor(actionbar-menu);
+  }
+
+  &__avatar {
+    margin: 0 auto;
+    padding: 10px;
   }
 }
 </style>
