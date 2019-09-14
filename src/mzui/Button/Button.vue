@@ -94,7 +94,7 @@ export default class MzButton extends Vue {
     cursor: not-allowed;
     pointer-events: none;
     color: getColor(text-secondary);
-    background-color: getVar('mz-button', 'background-color-disabled');
+    background-color: getColor(mz-button-disabled);
   }
 }
 </style>

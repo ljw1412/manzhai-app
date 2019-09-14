@@ -22,7 +22,9 @@ $colors: (
   actionbar-menu-active: #0cc20c,
   sidebar-menu: #909399,
   sidebar-menu-hover: #86e186,
-  sidebar-menu-active: #ffffff
+  sidebar-menu-active: #ffffff,
+  mz-button-disabled: rgba(255, 255, 255, 0.12),
+  mz-cell-group-list: #424242
 );
 
 :root[data-theme='dark'] {
@@ -31,5 +33,5 @@ $colors: (
   }
   --mz-button-shadow: 0 1px 2px 0 rgba(192, 196, 204, 0.3),
     0 3px 6px 2px rgba(192, 196, 204, 0.15);
-  --mz-button-background-color-disabled: rgba(255, 255, 255, 0.12);
+  --mz-cell-group-background: ;
 }

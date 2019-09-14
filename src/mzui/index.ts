@@ -1,8 +1,10 @@
 import { VueConstructor } from 'vue'
 import Icon from './Icon/index'
 import Button from './Button/index'
+import Cell from './Cell/index'
+import CellGroup from './CellGroup/index'
 
-const components = [Icon, Button]
+const components = [Icon, Button, Cell, CellGroup]
 
 const install = function(Vue: VueConstructor, options = {}) {
   components.forEach(component => {
