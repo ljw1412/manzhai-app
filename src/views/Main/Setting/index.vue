@@ -5,14 +5,18 @@
     <mz-button v-for="type of colorTypeList"
       :key="type"
       :type="type"
-      ripple>测试按钮</mz-button>
+      ripple
+      @click="onClick">测试按钮</mz-button>
     <mz-button icon
       circle
-      ripple>
+      ripple
+      disabled
+      @click="onClick">
       <mz-icon name="md-contact"
-        size="30"></mz-icon>
+        size="40"></mz-icon>
     </mz-button>
-    <mz-button disabled>
+    <mz-button disabled
+      @click="onClick">
       测试123
     </mz-button>
     <mz-cell-group title="单元格组测试"
@@ -40,6 +44,24 @@
       <mz-cell title="单元格"
         desc="描述性文字">
       </mz-cell>
+      <mz-cell title="单元格"
+        desc="描述性文字">
+      </mz-cell>
+      <mz-cell title="单元格"
+        desc="描述性文字">
+      </mz-cell>
+      <mz-cell title="单元格"
+        desc="描述性文字">
+      </mz-cell>
+      <mz-cell title="单元格"
+        desc="描述性文字">
+      </mz-cell>
+      <mz-cell title="单元格"
+        desc="描述性文字">
+      </mz-cell>
+      <mz-cell title="单元格"
+        desc="描述性文字">
+      </mz-cell>
     </mz-cell-group>
   </div>
 </template>
@@ -53,6 +75,10 @@ export default class Setting extends Vue {
   onChangeThemeClick() {
     const rootDataset = document.documentElement.dataset
     rootDataset.theme = rootDataset.theme ? '' : 'dark'
+  }
+
+  onClick(e: MouseEvent) {
+    console.log(e.target)
   }
 }
 </script>
