@@ -1,7 +1,9 @@
 <template>
   <button v-ripple="ripple"
     class="mz-button color-transition"
-    :class="buttonClasses">
+    v-on="$listeners"
+    :class="buttonClasses"
+    :disabled="disabled">
     <span v-if="$slots.default"
       class="mz-button__content">
       <slot></slot>
@@ -36,6 +38,10 @@ export default class MzButton extends Vue {
 
     return classes
   }
+
+  mounted() {
+    console.log(this.$listeners)
+  }
 }
 </script>
 
@@ -45,10 +51,11 @@ export default class MzButton extends Vue {
   -webkit-appearance: none;
   box-sizing: border-box;
   border: none;
-  // border: 1px solid getColor('border-base');
+  // border: 1px solid getColor(border-base);
   border-radius: 4px;
-  background-color: getColor('body-background');
-  color: getColor('text-regular');
+  background-color: getColor(body-background);
+  color: getColor(text-regular);
+  fill: getColor(text-regular);
   cursor: pointer;
   font-size: 14px;
   height: 32px;
@@ -63,16 +70,15 @@ export default class MzButton extends Vue {
   white-space: nowrap;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   overflow: hidden;
-
-  @include bgHover;
+  vertical-align: middle;
 
   &:not(.mz-button--disabled) {
+    @include bgHover;
     will-change: box-shadow;
-  }
-
-  &:active {
-    border-color: transparent;
-    box-shadow: getVar('mz-button', 'shadow');
+    &:active {
+      border-color: transparent;
+      box-shadow: getVar('mz-button', 'shadow');
+    }
   }
 
   &--icon {
@@ -85,14 +91,16 @@ export default class MzButton extends Vue {
 
   @each $type in (primary, success, warning, danger, info) {
     &--#{$type} {
-      color: getColor('white');
+      color: getColor(white);
+      fill: getColor(white);
       background-color: getColor(#{$type});
     }
   }
 
   &--disabled {
     cursor: not-allowed;
-    pointer-events: none;
+    // pointer-events: none;
+    fill: getColor(text-secondary);
     color: getColor(text-secondary);
     background-color: getColor(mz-button-disabled);
   }
