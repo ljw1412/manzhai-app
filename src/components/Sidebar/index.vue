@@ -8,10 +8,12 @@
       <transition name="zoom">
         <mz-icon v-if="isDisplaySidebar"
           name="md-arrow-back"
-          size="24"></mz-icon>
+          size="24"
+          key="sidebar-back"></mz-icon>
         <mz-icon v-else
           name="md-contact"
-          size="36"></mz-icon>
+          size="36"
+          key="sidebar-avatar"></mz-icon>
       </transition>
     </div>
     <!-- sidebar顶部 -->

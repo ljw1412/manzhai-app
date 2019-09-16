@@ -37,7 +37,7 @@ export default class MzCellGroup extends Vue {
   &__title {
     font-size: 14px;
     padding: 8px 0;
-    color: getColor('text-regular');
+    color: getColor(text-regular);
   }
 
   &__list {
