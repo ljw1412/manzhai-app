@@ -33,6 +33,12 @@ export default class MzCellGroup extends Vue {
 
 <style lang="scss">
 @import '@/styles/index.scss';
+:root {
+  --mz-cell-group__list-background-color: #{getColor(white)};
+  --mz-cell-group__list-box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3),
+    0 3px 6px 2px rgba(60, 64, 67, 0.15);
+}
+
 .mz-cell-group {
   &__title {
     font-size: 14px;
@@ -41,7 +47,7 @@ export default class MzCellGroup extends Vue {
   }
 
   &__list {
-    background-color: getColor(mz-cell-group-list);
+    background-color: getVar(mz-cell-group, list-background-color);
   }
 
   &--card {
@@ -52,7 +58,7 @@ export default class MzCellGroup extends Vue {
       position: relative;
       max-height: 100%;
       opacity: 1;
-      box-shadow: getVar('mz-button', 'shadow');
+      box-shadow: getVar(mz-cell-group, list-box-shadow);
       border-radius: 3px;
       overflow: hidden;
     }

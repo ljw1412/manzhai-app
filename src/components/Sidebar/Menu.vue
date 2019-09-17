@@ -25,8 +25,14 @@ export default class SidebarMenu extends Vue {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import '@/styles/index.scss';
+:root {
+  --sidebar-menu__color: #ffffff;
+  --sidebar-menu__color--hover: #86e186;
+  --sidebar-menu__color--active: #0cc20c;
+}
+
 .sidebar-menu {
   &__item {
     -webkit-app-region: no-drag;
@@ -38,8 +44,8 @@ export default class SidebarMenu extends Vue {
     word-wrap: none;
     word-break: keep-all;
     font-size: 18px;
-    color: getColor(sidebar-menu);
-    fill: getColor(sidebar-menu);
+    color: getVar(sidebar-menu, color);
+    fill: getVar(sidebar-menu, color);
     transition: all 0.3s ease-in-out;
 
     &::before {
@@ -63,8 +69,8 @@ export default class SidebarMenu extends Vue {
     }
 
     &.router-link-exact-active {
-      color: getColor(sidebar-menu-active);
-      fill: getColor(sidebar-menu-active);
+      color: getVar(sidebar-menu, color, active);
+      fill: getVar(sidebar-menu, color, active);
     }
   }
 

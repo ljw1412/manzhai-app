@@ -55,20 +55,27 @@ export default class Sidebar extends Vue {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import '@/styles/index.scss';
+:root {
+  --sidebar__width: 25%;
+  --sidebar__max-width: 256px;
+  --sidebar__box-shadow: -5px 0 10px #{getColor(primary)};
+  --sidebar__background-color: #{getColor(primary)};
+  --sidebar__header-icon-color: #{getColor(white)};
+}
 .sidebar {
   -webkit-app-region: drag;
   position: fixed;
   top: 0;
   left: 0;
-  width: getVar('sidebar', 'width');
-  max-width: getVar('sidebar', 'max-width');
+  width: getVar(sidebar, width);
+  max-width: getVar(sidebar, max-width);
   height: 100%;
   z-index: 1;
   box-sizing: border-box;
-  box-shadow: -5px 0 10px getColor(primary);
-  background-color: getColor(primary);
+  box-shadow: --sidebar__box-shadow;
+  background-color: getVar(sidebar, background-color);
   transition: all 0.3s linear;
   overflow: hidden;
   &--hide {
@@ -83,8 +90,8 @@ export default class Sidebar extends Vue {
     height: 180px;
     transition: height 0.3s 0.3s;
     overflow: hidden;
-    color: getColor(actionbar-menu);
-    fill: getColor(actionbar-menu);
+    color: getVar(sidebar, header-icon-color);
+    fill: getVar(sidebar, header-icon-color);
   }
 
   &__close {
@@ -95,8 +102,8 @@ export default class Sidebar extends Vue {
     width: 50px;
     height: 50px;
     cursor: pointer;
-    color: getColor(actionbar-menu);
-    fill: getColor(actionbar-menu);
+    color: getVar(sidebar, header-icon-color);
+    fill: getVar(sidebar, header-icon-color);
   }
 
   &__avatar {

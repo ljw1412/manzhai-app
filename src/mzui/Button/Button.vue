@@ -47,13 +47,19 @@ export default class MzButton extends Vue {
 
 <style lang="scss">
 @import '@/styles/index.scss';
+:root {
+  --mz-button__background-color: transparent;
+  --mz-button__background-color--disabled: rgba(0, 0, 0, 0.12);
+  --mz-button__box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3),
+    0 3px 6px 2px rgba(60, 64, 67, 0.15);
+}
 .mz-button {
   -webkit-appearance: none;
   box-sizing: border-box;
   border: none;
   // border: 1px solid getColor(border-base);
   border-radius: 4px;
-  background-color: getColor(body-background);
+  background-color: getVar(mz-button, background-color);
   color: getColor(text-regular);
   fill: getColor(text-regular);
   cursor: pointer;
@@ -77,7 +83,7 @@ export default class MzButton extends Vue {
     will-change: box-shadow;
     &:active {
       border-color: transparent;
-      box-shadow: getVar('mz-button', 'shadow');
+      box-shadow: getVar(mz-button, box-shadow);
     }
   }
 
@@ -102,7 +108,7 @@ export default class MzButton extends Vue {
     // pointer-events: none;
     fill: getColor(text-secondary);
     color: getColor(text-secondary);
-    background-color: getColor(mz-button-disabled);
+    background-color: getVar(mz-button, background-color, disabled);
   }
 }
 </style>

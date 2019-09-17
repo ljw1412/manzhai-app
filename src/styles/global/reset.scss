@@ -1,4 +1,7 @@
 @import '../index.scss';
+@import './themes/base.scss';
+@import './themes/dark.scss';
+@import './themes/layout.scss';
 
 * {
   margin: 0;
@@ -21,7 +24,3 @@ a {
   color: getColor(text-primary);
   text-decoration: none;
 }
-
-@import './themes/base.scss';
-@import './themes/dark.scss';
-@import './themes/layout.scss';
