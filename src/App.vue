@@ -59,6 +59,7 @@ export default class App extends Vue {
     // 滚动条上的滚动滑块
     &-thumb {
       border: 2px solid transparent;
+      border-radius: 100px;
       background-clip: padding-box;
       background-color: getColor(primary);
       &:active {

@@ -17,7 +17,7 @@
       </transition>
     </div>
     <!-- sidebar顶部 -->
-    <div class="sidebar__header color-transition">
+    <div class="sidebar__header">
       <transition name="fade">
         <div v-show="isDisplaySidebar"
           class="sidebar__avatar flex-double-center">
@@ -88,7 +88,7 @@ export default class Sidebar extends Vue {
 
   &__header {
     height: 180px;
-    transition: height 0.3s 0.3s;
+    transition: height 0.3s 0.3s, var(--color-transiton);
     overflow: hidden;
     color: getVar(sidebar, header-icon-color);
     fill: getVar(sidebar, header-icon-color);
