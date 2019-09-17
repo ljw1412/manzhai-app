@@ -35,8 +35,9 @@ export default class MzCellGroup extends Vue {
 @import '@/styles/index.scss';
 :root {
   --mz-cell-group__list-background-color: #{getColor(white)};
-  --mz-cell-group__list-box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3),
-    0 3px 6px 2px rgba(60, 64, 67, 0.15);
+  --mz-cell-group__list-box-shadow: 0 1px 2px 0
+      rgba(#{getColor(shadow-rgb)}, 0.3),
+    0 3px 6px 2px rgba(#{getColor(shadow-rgb)}, 0.15);
 }
 
 .mz-cell-group {

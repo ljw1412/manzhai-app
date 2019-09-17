@@ -10,13 +10,14 @@ $colors: (
   text-regular: #c0c4cc,
   text-secondary: #909399,
   text-placeholder: #606266,
-  border-base: #dcdfe6,
+  border-base: rgba(255, 255, 255, 0.12),
   border-light: #e4e7ed,
   border-lighter: #ebeef5,
   border-extra-light: #f2f6fc,
   body-background: #303030,
   hover-background-b: rgba(0, 0, 0, 0.25),
-  hover-background-w: rgba(255, 255, 255, 0.25)
+  hover-background-w: rgba(255, 255, 255, 0.25),
+  shadow-rgb: '0, 0, 0'
 );
 
 :root[data-theme='dark'] {
@@ -43,6 +44,7 @@ $colors: (
     0 3px 6px 2px rgba(192, 196, 204, 0.15);
   // MZCellGroup
   --mz-cell-group__list-background-color: #424242;
-  --mz-cell-group__list-box-shadow: 0 1px 2px 0 rgba(192, 196, 204, 0.3),
-    0 3px 6px 2px rgba(192, 196, 204, 0.15);
+  --mz-cell-group__list-box-shadow: 0 1px 2px 0
+      rgba(#{getColor(shadow-rgb)}, 0.3),
+    0 3px 6px 2px rgba(#{getColor(shadow-rgb)}, 0.15);
 }
