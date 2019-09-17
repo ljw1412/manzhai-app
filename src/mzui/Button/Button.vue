@@ -38,10 +38,6 @@ export default class MzButton extends Vue {
 
     return classes
   }
-
-  mounted() {
-    console.log(this.$listeners)
-  }
 }
 </script>
 
