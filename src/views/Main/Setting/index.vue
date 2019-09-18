@@ -19,6 +19,7 @@
       @click="onClick">
       测试123
     </mz-button>
+    <mz-switch v-model="checked"></mz-switch>
     <mz-cell-group title="单元格组测试"
       type="card">
       <mz-cell title="单元格"
@@ -71,6 +72,7 @@ import { Component, Vue } from 'vue-property-decorator'
 @Component
 export default class Setting extends Vue {
   colorTypeList = ['', 'primary', 'success', 'warning', 'danger', 'info']
+  checked = false
 
   onChangeThemeClick() {
     const rootDataset = document.documentElement.dataset
