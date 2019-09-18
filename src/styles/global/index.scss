@@ -5,6 +5,10 @@
   cursor: pointer !important;
 }
 
+.is-not-allowed {
+  cursor: not-allowed !important;
+}
+
 .not-user-select {
   user-select: none !important;
 }

@@ -1,7 +1,11 @@
 <template>
   <div class="mz-switch"
     :aria-checked="value"
-    :class="{'mz-switch--checked':value}"
+    :class="{
+      'mz-switch--checked': value,
+      'is-pointer': !disabled,
+      'is-not-allowed': disabled
+    }"
     @click="onSwitchClick">
     <input ref="input"
       type="checkbox"
@@ -25,6 +29,7 @@ export default class MzSwitch extends Vue {
   readonly input!: HTMLInputElement
 
   onSwitchClick() {
+    if (this.disabled) return
     this.$emit('change', !this.value)
     this.$emit('input', !this.value)
     this.input.checked = !this.value
@@ -45,8 +50,8 @@ export default class MzSwitch extends Vue {
 }
 
 .mz-switch {
+  position: relative;
   display: inline-block;
-  padding: 2px;
   vertical-align: middle;
   &__input {
     position: absolute;
@@ -58,28 +63,36 @@ export default class MzSwitch extends Vue {
 
   &__core {
     position: relative;
-    width: 40px;
+    width: 45px;
     height: 20px;
     background-color: getVar(mz-switch, bar-background-color);
+    border-radius: 2px;
     &::after {
       content: '';
       position: absolute;
-      left: -1px;
-      right: 50%;
       top: -1px;
-      bottom: -1px;
+      left: 0;
+      width: 20px;
+      height: 100%;
       background-color: getVar(mz-switch, thumb-background-color);
-      box-shadow: 0 0 3px rgba(0, 0, 0, 0.36);
+      box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 3px 0px;
       transition: all 0.2s linear;
+      transform-origin: left center;
+      border-radius: 2px;
+      border: 1px solid transparent;
     }
+  }
+
+  &:active &__core::after {
+    transform: scaleX(1.1);
   }
 
   &--checked {
     .mz-switch__core {
       background-color: getVar(mz-switch, bar-background-color, check);
       &::after {
-        left: 50%;
-        right: -1px;
+        left: calc(100% - 20px);
+        transform-origin: right center;
       }
     }
   }
