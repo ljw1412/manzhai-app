@@ -41,6 +41,13 @@ export default class MzButton extends Vue {
 }
 </script>
 
+<theme namespace="mz-button">
+  background-color: transparent;
+  background-color--disabled: rgba(0, 0, 0, 0.12);
+  box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3),
+   0 3px 6px 2px rgba(60, 64, 67, 0.15);
+</theme>
+
 <style lang="scss">
 @import '@/styles/index.scss';
 :root {
