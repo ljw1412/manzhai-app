@@ -23,6 +23,7 @@
         <slot name="right">
           <mz-switch v-if="hasSwitch"
             v-model="theValue"
+            :size="size"
             @change="onValueChange"></mz-switch>
         </slot>
       </div>
@@ -50,6 +51,8 @@ export default class MzCell extends Vue {
   readonly desc!: string
   @Prop(String)
   readonly type!: string
+  @Prop(String)
+  readonly size!: string
   @Prop(Boolean)
   readonly value!: boolean
 
