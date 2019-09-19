@@ -74,7 +74,7 @@ export default class Sidebar extends Vue {
   height: 100%;
   z-index: 1;
   box-sizing: border-box;
-  box-shadow: --sidebar__box-shadow;
+  box-shadow: getVar(sidebar, box-shadow);
   background-color: getVar(sidebar, background-color);
   transition: all 0.3s linear;
   overflow: hidden;
