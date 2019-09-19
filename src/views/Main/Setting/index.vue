@@ -20,6 +20,8 @@
       测试123
     </mz-button>
     <mz-switch v-model="checked"></mz-switch>
+    <mz-switch v-model="checked"
+      disabled></mz-switch>
     <mz-cell-group title="单元格组测试"
       type="card">
       <mz-cell title="单元格"
@@ -34,13 +36,15 @@
         </mz-cell>
       </mz-cell>
       <mz-cell title="单元格"
-        desc="描述性文字">
+        desc="描述性文字"
+        v-model="checked"
+        has-switch>
       </mz-cell>
       <mz-cell title="单元格"
-        desc="描述性文字">
+        desc="描述性文字"
+        has-switch>
       </mz-cell>
-      <mz-cell title="单元格"
-        desc="描述性文字">
+      <mz-cell title="单元格">
       </mz-cell>
       <mz-cell title="单元格"
         desc="描述性文字">
