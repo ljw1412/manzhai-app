@@ -37,12 +37,12 @@
       </mz-cell>
       <mz-cell title="单元格"
         desc="描述性文字"
-        v-model="checked"
-        has-switch>
+        type="switch"
+        v-model="checked">
       </mz-cell>
       <mz-cell title="单元格"
         desc="描述性文字"
-        has-switch>
+        type="switch">
       </mz-cell>
       <mz-cell title="单元格">
       </mz-cell>

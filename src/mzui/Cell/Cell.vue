@@ -1,5 +1,8 @@
 <template>
-  <div class="mz-cell color-transition">
+  <div class="mz-cell color-transition"
+    v-ripple="hasSwitch"
+    :class="{'is-pointer': hasSwitch}"
+    @click="onCellClick">
     <div class="mz-cell__core flex-center-space-between">
       <div class="mz-cell__left">
         <slot>
@@ -15,7 +18,7 @@
       </div>
       <div class="mz-cell__right"
         :class="{
-          'mz-cell__right--switch': !$slots.right && hasSwitch
+          'mz-cell__right--switch': hasSwitch
         }">
         <slot name="right">
           <mz-switch v-if="hasSwitch"
@@ -32,7 +35,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop, Watch } from 'vue-property-decorator'
+import { Component, Vue, Prop, Watch, Emit } from 'vue-property-decorator'
 import MzSwitch from '../Switch/index'
 
 @Component({
@@ -45,12 +48,23 @@ export default class MzCell extends Vue {
   readonly title!: string
   @Prop(String)
   readonly desc!: string
-  @Prop(Boolean)
-  readonly hasSwitch!: boolean
+  @Prop(String)
+  readonly type!: string
   @Prop(Boolean)
   readonly value!: boolean
 
   theValue: boolean = false
+
+  get hasSwitch() {
+    return this.type === 'switch' && !this.$slots.right
+  }
+
+  @Emit('click')
+  onCellClick() {
+    if (this.hasSwitch) {
+      this.theValue = !this.theValue
+    }
+  }
 
   @Watch('value')
   onValueChange(val: boolean) {
@@ -59,8 +73,8 @@ export default class MzCell extends Vue {
 
   @Watch('theValue')
   onTheValueChange(val: boolean) {
-    this.$emit('change', val)
-    this.$emit('input', val)
+    this.$emit('change', val, 'theChange')
+    this.$emit('input', val, 'theInput')
   }
 }
 </script>

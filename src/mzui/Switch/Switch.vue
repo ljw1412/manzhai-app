@@ -7,7 +7,8 @@
       'is-pointer': !disabled,
       'is-not-allowed': disabled
     }"
-    @click="onSwitchClick">
+    @click.stop="onSwitchClick"
+    @mousedown.stop>
     <input ref="input"
       type="checkbox"
       class="mz-switch__input"
@@ -23,7 +24,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop, Ref } from 'vue-property-decorator'
+import { Component, Vue, Prop, Ref, Emit } from 'vue-property-decorator'
 import MzIcon from '../Icon/index'
 @Component({
   components: {
@@ -54,11 +55,12 @@ export default class MzSwitch extends Vue {
       : this.inactiveIcon
   }
 
+  @Emit('change')
+  @Emit('input')
   onSwitchClick() {
     if (this.disabled) return
-    this.$emit('change', !this.value)
-    this.$emit('input', !this.value)
     this.input.checked = !this.value
+    return !this.value
   }
 
   mounted() {
@@ -82,6 +84,7 @@ export default class MzSwitch extends Vue {
   display: inline-block;
   vertical-align: middle;
   padding: 1px;
+  z-index: 100;
   &__input {
     position: absolute;
     width: 0;
