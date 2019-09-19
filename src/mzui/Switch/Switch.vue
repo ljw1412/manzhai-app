@@ -1,12 +1,7 @@
 <template>
   <div class="mz-switch"
     :aria-checked="value"
-    :class="{
-      'mz-switch--checked': value,
-      'mz-switch--disabled': disabled,
-      'is-pointer': !disabled,
-      'is-not-allowed': disabled
-    }"
+    :class="wrapperClasses"
     @click.stop="onSwitchClick"
     @mousedown.stop>
     <input ref="input"
@@ -44,6 +39,8 @@ export default class MzSwitch extends Vue {
   readonly inactiveIcon!: string
   @Prop(String)
   readonly iconColor!: string
+  @Prop(String)
+  readonly size!: string
   @Ref('input')
   readonly input!: HTMLInputElement
 
@@ -55,12 +52,25 @@ export default class MzSwitch extends Vue {
       : this.inactiveIcon
   }
 
-  @Emit('change')
-  @Emit('input')
+  get wrapperClasses() {
+    const classes = [
+      this.disabled ? 'is-not-allowed' : 'is-pointer',
+      {
+        'mz-switch--checked': this.value,
+        'mz-switch--disabled': this.disabled
+      }
+    ]
+    if (['large', 'small'].includes(this.size)) {
+      classes.push(`mz-switch--${this.size}`)
+    }
+    return classes
+  }
+
   onSwitchClick() {
     if (this.disabled) return
     this.input.checked = !this.value
-    return !this.value
+    this.$emit('change', !this.value)
+    this.$emit('input', !this.value)
   }
 
   mounted() {
@@ -72,9 +82,11 @@ export default class MzSwitch extends Vue {
 <style lang="scss" >
 @import '@/styles/index.scss';
 :root {
+  --mz-switch__bar-width: 40.5px;
+  --mz-switch__bar-height: 18px;
   --mz-switch__bar-box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 3px 0px;
   --mz-switch__bar-background-color: #bdc1c6;
-  --mz-switch__bar-background-color--check: #{getColor(primary)};
+  --mz-switch__bar-background-color--checked: #{getColor(primary)};
   --mz-switch__thumb-background-color: #ffffff;
   --mz-switch__thumb-box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 3px 0px;
 }
@@ -95,8 +107,8 @@ export default class MzSwitch extends Vue {
 
   &__core {
     position: relative;
-    width: 45px;
-    height: 20px;
+    width: getVar(mz-switch, bar-width);
+    height: getVar(mz-switch, bar-height);
     background-color: getVar(mz-switch, bar-background-color);
     box-shadow: getVar(mz-switch, bar-box-shadow);
     border-radius: 2px;
@@ -117,7 +129,7 @@ export default class MzSwitch extends Vue {
     position: absolute;
     top: -1px;
     left: 0;
-    width: 20px;
+    width: getVar(mz-switch, bar-height);
     height: 100%;
     background-color: getVar(mz-switch, thumb-background-color);
     box-shadow: getVar(mz-switch, thumb-box-shadow);
@@ -125,6 +137,10 @@ export default class MzSwitch extends Vue {
     transform-origin: left center;
     border-radius: 2px;
     border: 1px solid transparent;
+    .mz-icon {
+      width: getVar(mz-switch, bar-height) !important;
+      height: getVar(mz-switch, bar-height) !important;
+    }
   }
 
   &:not(&--disabled):active &__thumb {
@@ -134,10 +150,10 @@ export default class MzSwitch extends Vue {
   &--checked {
     .mz-switch {
       &__core {
-        background-color: getVar(mz-switch, bar-background-color, check);
+        background-color: getVar(mz-switch, bar-background-color, checked);
       }
       &__thumb {
-        left: calc(100% - 20px);
+        left: calc(100% - #{getVar(mz-switch, bar-height)});
         transform-origin: right center;
       }
     }
@@ -151,6 +167,16 @@ export default class MzSwitch extends Vue {
         }
       }
     }
+  }
+
+  &--large {
+    --mz-switch__bar-width: 45px;
+    --mz-switch__bar-height: 20px;
+  }
+
+  &--small {
+    --mz-switch__bar-width: 36px;
+    --mz-switch__bar-height: 16px;
   }
 }
 </style>

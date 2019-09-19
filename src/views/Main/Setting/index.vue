@@ -38,16 +38,19 @@
       <mz-cell title="单元格"
         desc="描述性文字"
         type="switch"
+        size="small">
+      </mz-cell>
+      <mz-cell title="单元格"
+        desc="描述性文字"
+        type="switch"
         v-model="checked">
       </mz-cell>
       <mz-cell title="单元格"
         desc="描述性文字"
-        type="switch">
+        type="switch"
+        size="large">
       </mz-cell>
       <mz-cell title="单元格">
-      </mz-cell>
-      <mz-cell title="单元格"
-        desc="描述性文字">
       </mz-cell>
       <mz-cell title="单元格"
         desc="描述性文字">
