@@ -75,19 +75,24 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Vue, Watch } from 'vue-property-decorator'
 @Component
 export default class Setting extends Vue {
   colorTypeList = ['', 'primary', 'success', 'warning', 'danger', 'info']
   checked = false
+  theme = ''
 
   onChangeThemeClick() {
-    const rootDataset = document.documentElement.dataset
-    rootDataset.theme = rootDataset.theme ? '' : 'dark'
+    this.theme = this.theme ? '' : 'dark'
   }
 
   onClick(e: MouseEvent) {
     console.log(e.target)
+  }
+
+  @Watch('theme')
+  onThemeChange(val: string) {
+    this.$changeTheme(val)
   }
 }
 </script>

@@ -8,10 +8,17 @@ import Dropdown from './Dropdown/index'
 
 const components = [Icon, Button, Cell, CellGroup, Switch, Dropdown]
 
+const changeTheme = function(name: string) {
+  const rootDataset = document.documentElement.dataset
+  rootDataset.theme = name
+}
+
 const install = function(Vue: VueConstructor, options = {}) {
+  Vue.prototype.$changeTheme = changeTheme
+
   components.forEach(component => {
     Vue.component(component.name, component)
   })
 }
 
-export default { install, Icon, Button }
+export default { install, Icon, Button, Cell, CellGroup, Switch, Dropdown }
