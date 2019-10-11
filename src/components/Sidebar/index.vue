@@ -60,22 +60,22 @@ export default class Sidebar extends Vue {
 :root {
   --sidebar__width: 25%;
   --sidebar__max-width: 256px;
-  --sidebar__box-shadow: -5px 0 10px #{getColor(primary)};
-  --sidebar__background-color: #{getColor(primary)};
-  --sidebar__header-icon-color: #{getColor(white)};
+  --sidebar__box-shadow: -5px 0 10px var(--color-primary);
+  --sidebar__background-color: var(--color-primary);
+  --sidebar__header-icon-color: var(--color-white);
 }
 .sidebar {
   -webkit-app-region: drag;
   position: fixed;
   top: 0;
   left: 0;
-  width: getVar(sidebar, width);
-  max-width: getVar(sidebar, max-width);
+  width: var(--sidebar__width);
+  max-width: var(--sidebar__max-width);
   height: 100%;
   z-index: 1;
   box-sizing: border-box;
-  box-shadow: getVar(sidebar, box-shadow);
-  background-color: getVar(sidebar, background-color);
+  box-shadow: var(--sidebar__box-shadow);
+  background-color: var(--sidebar__background-color);
   transition: all 0.3s linear;
   overflow: hidden;
   &--hide {
@@ -90,8 +90,8 @@ export default class Sidebar extends Vue {
     height: 180px;
     transition: height 0.3s 0.3s, var(--color-transiton);
     overflow: hidden;
-    color: getVar(sidebar, header-icon-color);
-    fill: getVar(sidebar, header-icon-color);
+    color: var(--sidebar__header-icon-color);
+    fill: var(--sidebar__header-icon-color);
   }
 
   &__close {
@@ -102,8 +102,8 @@ export default class Sidebar extends Vue {
     width: 50px;
     height: 50px;
     cursor: pointer;
-    color: getVar(sidebar, header-icon-color);
-    fill: getVar(sidebar, header-icon-color);
+    color: var(--sidebar__header-icon-color);
+    fill: var(--sidebar__header-icon-color);
   }
 
   &__avatar {

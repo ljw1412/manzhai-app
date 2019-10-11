@@ -15,12 +15,12 @@ body,
 }
 
 #app {
-  color: getColor(text-primary);
-  background-color: getColor(body-background);
+  color: var(--color-text-primary);
+  background-color: var(--color-body-background);
 }
 
 a {
   -webkit-user-drag: none;
-  color: getColor(text-primary);
+  color: var(--color-text-primary);
   text-decoration: none;
 }

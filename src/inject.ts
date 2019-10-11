@@ -1,9 +1,10 @@
 import '@/styles/global/index.scss'
+import 'manzhai-ui/lib/manzhai-ui.css'
 import { VueConstructor } from 'vue'
 import VueRouter from 'vue-router'
 import { Store } from 'vuex'
 import * as directives from '@/directives'
-import mzui from '@/mzui/index'
+import manzhaiUI from 'manzhai-ui'
 import Message from '@/model/Message'
 
 export default function(
@@ -48,7 +49,7 @@ function bindDirectives(Vue: VueConstructor) {
 function bindToVue(Vue: VueConstructor) {
   bindDirectives(Vue)
   registerMZIcon(Vue)
-  Vue.use(mzui)
+  Vue.use(manzhaiUI)
 }
 
 /**

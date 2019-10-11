@@ -43,8 +43,8 @@ export default class App extends Vue {
   transition: all 0.3s linear;
 
   &.has-sidebar {
-    width: calc(100% - #{getVar('sidebar', 'width')});
-    min-width: calc(100% - #{getVar('sidebar', 'max-width')});
+    width: calc(100% - var(--sidebar__width));
+    min-width: calc(100% - var(--sidebar__max-width));
   }
 
   &::-webkit-scrollbar {
@@ -61,7 +61,7 @@ export default class App extends Vue {
       border: 2px solid transparent;
       border-radius: 100px;
       background-clip: padding-box;
-      background-color: getColor(primary);
+      background-color: var(--color-primary);
       &:active {
         border: 0;
       }

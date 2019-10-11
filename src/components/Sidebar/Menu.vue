@@ -44,8 +44,8 @@ export default class SidebarMenu extends Vue {
     word-wrap: none;
     word-break: keep-all;
     font-size: 18px;
-    color: getVar(sidebar-menu, color);
-    fill: getVar(sidebar-menu, color);
+    color: var(--sidebar-menu__color);
+    fill: var(--sidebar-menu__color);
     transition: all 0.3s ease-in-out;
 
     &::before {
@@ -69,8 +69,8 @@ export default class SidebarMenu extends Vue {
     }
 
     &.router-link-exact-active {
-      color: getVar(sidebar-menu, color, active);
-      fill: getVar(sidebar-menu, color, active);
+      color: var(--sidebar-menu__color--active);
+      fill: var(--sidebar-menu__color--active);
     }
   }
 

@@ -1,1 +1,1 @@
-export { Ripple } from './ripple'
+export default {}

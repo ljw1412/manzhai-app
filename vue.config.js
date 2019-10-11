@@ -1,16 +1,7 @@
 const { resolve } = require('path')
 
 module.exports = {
-  configureWebpack: {
-    module: {
-      rules: [
-        {
-          resourceQuery: /blockType=theme/,
-          loader: resolve('src/loader/vue-theme-loader.js')
-        }
-      ]
-    }
-  },
+  configureWebpack: {},
   chainWebpack: config => {
     config.module
       .rule('svg')

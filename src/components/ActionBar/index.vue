@@ -27,8 +27,8 @@ export default class ActionBar extends Vue {
 <style lang="scss">
 @import '@/styles/index.scss';
 :root {
-  --actionbar__background-color: #{getColor(primary)};
-  --actionbar__font-color: #{getColor(white)};
+  --actionbar__background-color: var(--color-primary);
+  --actionbar__font-color: var(--color-white);
 }
 
 .actionbar {
@@ -36,10 +36,10 @@ export default class ActionBar extends Vue {
   height: 50px;
   width: 100%;
   box-sizing: border-box;
-  background-color: getVar(actionbar, background-color);
+  background-color: var(--actionbar__background-color);
 
   &__title {
-    color: getVar(actionbar, font-color);
+    color: var(--actionbar__font-color);
   }
 }
 </style>
