@@ -22,17 +22,6 @@ export default function(
 window.Message = Message
 
 /**
- * 注册SVG图标库和图标组件
- * @param Vue
- */
-function registerMZIcon(Vue: VueConstructor) {
-  const svgs = require.context('@/icons', false, /\.svg$/)
-  const requireAll = (requireContext: __WebpackModuleApi.RequireContext) =>
-    requireContext.keys().map(requireContext)
-  requireAll(svgs)
-}
-
-/**
  * 绑定自定义指令
  * @param Vue
  */
@@ -48,7 +37,6 @@ function bindDirectives(Vue: VueConstructor) {
  */
 function bindToVue(Vue: VueConstructor) {
   bindDirectives(Vue)
-  registerMZIcon(Vue)
   Vue.use(manzhaiUI)
 }
 
